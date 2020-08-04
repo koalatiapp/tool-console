@@ -1,0 +1,29 @@
+{
+  "name": "@koalati/tool-console",
+  "version": "1.0.0",
+  "description": "Koalati tool that checks for errors and warnings in the browser's console",
+  "main": "tool.js",
+  "scripts": {
+    "test": "npx @koalati/dev-tool-tester --url=\"https://koalati.com/\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koalatiapp/tool-console.git"
+  },
+  "keywords": [
+    "koalati"
+  ],
+  "author": {
+    "name": "Koalati",
+    "email": "info@koalati.com",
+    "url": "https://koalati.com"
+  },
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/koalatiapp/tool-console/issues"
+  },
+  "homepage": "https://github.com/koalatiapp/tool-console#readme",
+  "devDependencies": {
+    "@koalati/dev-tool-tester": "^1.0.5"
+  }
+}
