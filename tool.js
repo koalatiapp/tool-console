@@ -7,26 +7,47 @@ class Tool {
     }
 
     async run() {
-
+        // Scroll down to the bottm of the page
+        await this.page.evaluate(async () => {
+            await new Promise((resolve, reject) => {
+                window.scrollBy({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
+                setTimeout(() => {
+                    resolve();
+                }, 500);
+            });
+        });
     }
 
     get results() {
-        // returns an array of formatted Result objects
-        // this method will always be called after run()
-        // this getter should contain little to no logic or processing: it's only goal is to return the results in the Koalati's desired format
-
         return [
             {
-                'uniqueName': 'your_test_unique_name', // a test name that is unique within your tool. this will be prefixed with your tool's name to generate a Koalati-wide unique name for this test.
-                'title': 'Your test\'s user-friendly title',
-                'description': 'Your test\'s user-friendly description.', // This can be a static description of what your test looks for, or a dynamic one that describes the results.
-                'weight': 1, // the weight of this test's score as a float. the sum of the weights of all your results should be 1.0
-                'score': 1, // the score obtained as a float: 0.5 is 50%, 1.0 is 100%, etc.
-                // 'snippets': [], // a one-dimensional array of strings and/or ElementHandle that can be represented as code snippets in Koalati's results
-                // 'table': [], // a two-dimensional array of data that will be represented as a table in Koalati's results. The first row should contain the column's headings.
-                // 'recommendations': '', // a string or an array of string that gives recommendations, telling the user what can be done to improve the page
+                'uniqueName': 'errors',
+                'title': 'Errors',
+                'description': 'A list of error messages appearing in the browser\'s console when visiting your page.',
+                'weight': .9,
+                'score': 1 - Math.min(this.consoleMessages.errors.length, 10) * .1,
+                'table': ['Error message'].concat(this.consoleMessages.errors).map(msg => [msg]),
+                'recommendations': this.consoleMessages.errors.length ? 'Fix the errors that appear in the browser\'s console when visiting your website.' : null
             },
-            // ...
+            {
+                'uniqueName': 'warnings',
+                'title': 'Warnings',
+                'description': 'A list of warning messages appearing in the browser\'s console when visiting your page.',
+                'weight': .1,
+                'score': 1 - Math.min(this.consoleMessages.warnings.length, 10) * .1,
+                'table': ['Warning message'].concat(this.consoleMessages.warnings).map(msg => [msg]),
+            },
+            {
+                'uniqueName': 'logs',
+                'title': 'Logs and information messages',
+                'description': 'A list of benign log messages appearing in the browser\'s console when visiting your page.',
+                'weight': 0,
+                'score': 0,
+                'table': ['Message'].concat(this.consoleMessages.others).map(msg => [msg]),
+            },
         ];
     };
 

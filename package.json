@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/koalatiapp/tool-console#readme",
   "devDependencies": {
-    "@koalati/dev-tool-tester": "^1.0.5"
+    "@koalati/dev-tool-tester": ">=1.0.6"
   }
 }
