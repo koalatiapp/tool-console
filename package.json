@@ -1,6 +1,6 @@
 {
   "name": "@koalati/tool-console",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Koalati tool that checks for errors and warnings in the browser's console",
   "main": "tool.js",
   "scripts": {
