@@ -1,0 +1,45 @@
+[
+	{
+		"uniqueName": "errors",
+		"title": "Errors",
+		"description": "A list of error messages appearing in the browser's console when visiting your page.",
+		"weight": 0.9,
+		"score": 0.9,
+		"table": [
+			[
+				"Error message"
+			],
+			[
+				"Sample error thrown from an in-page script."
+			]
+		],
+		"recommendations": "Fix the errors that appear in the browser's console when visiting your website."
+	},
+	{
+		"uniqueName": "warnings",
+		"title": "Warnings",
+		"description": "A list of warning messages appearing in the browser's console when visiting your page.",
+		"weight": 0.1,
+		"score": 1,
+		"table": [
+			[
+				"Warning message"
+			]
+		]
+	},
+	{
+		"uniqueName": "logs",
+		"title": "Logs and information messages",
+		"description": "A list of benign log messages appearing in the browser's console when visiting your page.",
+		"weight": 0,
+		"score": 0,
+		"table": [
+			[
+				"Message"
+			],
+			[
+				"Hello, world!"
+			]
+		]
+	}
+]
