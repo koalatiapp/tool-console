@@ -5,6 +5,10 @@
 		"description": "A list of error messages appearing in the browser's console when visiting your page.",
 		"weight": 0.9,
 		"score": 0.9,
+		"recommendations": [
+			"Fix the errors that appear in the browser's console when visiting your website."
+		],
+		"snippets": [],
 		"table": [
 			[
 				"Error message"
@@ -12,15 +16,16 @@
 			[
 				"Sample error thrown from an in-page script."
 			]
-		],
-		"recommendations": "Fix the errors that appear in the browser's console when visiting your website."
+		]
 	},
 	{
 		"uniqueName": "warnings",
 		"title": "Warnings",
 		"description": "A list of warning messages appearing in the browser's console when visiting your page.",
 		"weight": 0.1,
-		"score": 1,
+		"score": 0.9,
+		"recommendations": [],
+		"snippets": [],
 		"table": [
 			[
 				"Warning message"
@@ -29,10 +34,12 @@
 	},
 	{
 		"uniqueName": "logs",
-		"title": "Logs and information messages",
-		"description": "A list of benign log messages appearing in the browser's console when visiting your page.",
+		"title": "Logs",
+		"description": "Logs and information messages",
 		"weight": 0,
-		"score": 0,
+		"score": 1,
+		"recommendations": [],
+		"snippets": [],
 		"table": [
 			[
 				"Message"

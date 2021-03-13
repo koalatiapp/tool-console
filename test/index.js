@@ -5,7 +5,7 @@ const Tool = require("..");
 const testFileName = path.join(__dirname, "sample.html");
 const expectedResults = require("./expectation.json");
 
-describe("Social tool (@koalati/tool-console)", async () => {
+describe("Console tool (@koalati/tool-console)", async () => {
 	it("Should receive the expected results from the test tool's execution", async () => {
 		const results = await runTool(Tool, `file:${testFileName}`);
 		assert.deepStrictEqual(results, expectedResults);
