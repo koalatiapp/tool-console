@@ -6,7 +6,7 @@
 		"weight": 0.9,
 		"score": 0.9,
 		"recommendations": [
-			"Fix the errors that appear in the browser's console when visiting your website."
+			["Fix the errors that appear in the browser's console when visiting your website.", {}]
 		],
 		"snippets": [],
 		"table": [

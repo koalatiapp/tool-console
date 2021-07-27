@@ -1,6 +1,6 @@
 "use strict";
 
-const ResultBuilder = require("result-builder");
+const ResultBuilder = require("@koalati/result-builder");
 
 class Tool {
 	constructor({ page, consoleMessages }) {
@@ -36,9 +36,8 @@ class Tool {
 		result.setTitle("Errors")
 			.setDescription("A list of error messages appearing in the browser's console when visiting your page.")
 			.setWeight(.9)
-			.setScore(1 - Math.min(this.consoleMessages.errors.length, 10) * .1)
-			.addTableRows(["Error message"].concat(this.consoleMessages.errors).map(msg => [msg]));
-
+			.setScore(1 - Math.min(this.consoleMessages.errors.length, 10) * .1);
+		result.table = ["Error message"].concat(this.consoleMessages.errors).map(msg => [msg]);
 
 		if (this.consoleMessages.errors.length) {
 			result.addRecommendation("Fix the errors that appear in the browser's console when visiting your website.");
@@ -50,8 +49,8 @@ class Tool {
 		result.setTitle("Warnings")
 			.setDescription("A list of warning messages appearing in the browser's console when visiting your page.")
 			.setWeight(.1)
-			.setScore(1 - Math.min(this.consoleMessages.errors.length, 10) * .1)
-			.addTableRows(["Warning message"].concat(this.consoleMessages.warnings).map(msg => [msg]));
+			.setScore(1 - Math.min(this.consoleMessages.errors.length, 10) * .1);
+		result.table = ["Warning message"].concat(this.consoleMessages.warnings).map(msg => [msg]);
 	}
 
 	checkLogs(){
@@ -59,8 +58,8 @@ class Tool {
 		result.setTitle("Logs")
 			.setDescription("Logs and information messages")
 			.setWeight(0)
-			.setScore(1)
-			.addTableRows(["Message"].concat(this.consoleMessages.others).map(msg => [msg]));
+			.setScore(1);
+		result.table = ["Message"].concat(this.consoleMessages.others).map(msg => [msg]);
 	}
 
 	async cleanup() {
