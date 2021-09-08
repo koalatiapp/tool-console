@@ -1,6 +1,6 @@
 "use strict";
 
-const ResultBuilder = require("@koalati/result-builder");
+const { ResultBuilder, priorities } = require("@koalati/result-builder");
 
 class Tool {
 	constructor({ page, consoleMessages }) {
@@ -40,7 +40,7 @@ class Tool {
 		result.table = ["Error message"].concat(this.consoleMessages.errors).map(msg => [msg]);
 
 		if (this.consoleMessages.errors.length) {
-			result.addRecommendation("Fix the errors that appear in the browser's console when visiting your website.");
+			result.addRecommendation("Fix the errors that appear in the browser's console when visiting your website.", {}, priorities.ISSUE);
 		}
 	}
 
